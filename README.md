@@ -16,16 +16,15 @@ No processo de ETL (Extract, Transform, Load) dentro do Power BI (usando o Power
 
 - **Cuidado com desempenho**: Embora úteis, consultas referenciadas podem impactar o tempo de atualização. Cada consulta que referencia outra pode fazer a fonte de dados ser acessada várias vezes (não há “cache” automático do resultado da primeira)
 
-. Isso significa que no refresh, a consulta base pode ser executada múltiplas vezes – por exemplo, uma vez para cada consulta referenciada – tornando a atualização mais lenta e sobrecarregando a fonte de dados
-. A imagem abaixo ilustra esse cenário, em que a Query1 (não carregada) é referenciada por três outras consultas, causando reexecuções separadas de Query1:
+Isso significa que no refresh, a consulta base pode ser executada múltiplas vezes – por exemplo, uma vez para cada consulta referenciada – tornando a atualização mais lenta e sobrecarregando a fonte de dados
+A imagem abaixo ilustra esse cenário, em que a Query1 (não carregada) é referenciada por três outras consultas, causando reexecuções separadas de Query1:
 
 [ADICIONAR IMAGEM]
 
-[Consultas referenciadas](https://learn.microsoft.com/pt-br/power-bi/guidance/power-query-referenced-queries)
-
-Dica de performance: Se notar lentidão devido a referências múltiplas, considere bufferizar a consulta base ou reavaliar sua estratégia de ETL. Porém, note que funções como Table.Buffer não impedem reexecuções em consultas separadas
+> Dica de performance: Se notar lentidão devido a referências múltiplas, considere bufferizar a consulta base ou reavaliar sua estratégia de ETL. Porém, note que funções como Table.Buffer não impedem reexecuções em consultas separadas
 . Uma alternativa recomendada pela Microsoft é usar Dataflows (Fluxos de Dados) ou etapas de preparação upstream. Mover a lógica compartilhada para um dataflow permite armazenar os dados transformados de forma persistente no serviço do Power BI, acelerando o refresh e evitando hits repetidos à fonte.
 . Em resumo: use consultas referenciadas para evitar duplicação de passos, mas esteja atento ao impacto e opte por soluções escaláveis (como dataflows) em casos de grande volume ou múltiplas dependências
+> [Consultas referenciadas](https://learn.microsoft.com/pt-br/power-bi/guidance/power-query-referenced-queries)
 
 ### Descrição de Consultas
 
