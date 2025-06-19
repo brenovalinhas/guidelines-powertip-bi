@@ -16,7 +16,8 @@ No processo de ETL (Extract, Transform, Load) dentro do Power BI (usando o Power
 
 - **Cuidado com desempenho**: Embora úteis, consultas referenciadas podem impactar o tempo de atualização. Cada consulta que referencia outra pode fazer a fonte de dados ser acessada várias vezes (não há “cache” automático do resultado da primeira)
 
-Isso significa que no refresh, a consulta base pode ser executada múltiplas vezes – por exemplo, uma vez para cada consulta referenciada – tornando a atualização mais lenta e sobrecarregando a fonte de dados
+Isso significa que no refresh, a consulta base pode ser executada múltiplas vezes – por exemplo, uma vez para cada consulta referenciada – tornando a atualização mais lenta e sobrecarregando a fonte de dados,
+
 A imagem abaixo ilustra esse cenário, em que a Query1 (não carregada) é referenciada por três outras consultas, causando reexecuções separadas de Query1:
 
 [ADICIONAR IMAGEM]
