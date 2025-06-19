@@ -327,10 +327,12 @@ Controlar versões e histórico do desenvolvimento do relatório é fundamental,
 
 Uma boa documentação de projeto de BI deve cobrir, pelo menos, os seguintes pontos
 
-- Informações Gerais do Projeto:
+- Informações Gerais do Projeto
+
  Nome do projeto/relatório, responsável(s) pelo desenvolvimento, data de criação e últimas atualizações, versão atual, departamento ou cliente solicitante. Inclua também o propósito geral em uma frase. (Ex.: Relatório Vendas Mensais – Responsável: Ana Souza – Versão 1.2 (Atualizado em Mar/2025)).
 
-- Objetivo do Projeto:
+- Objetivo do Projeto
+
 Descreva o que o dashboard busca resolver ou responder. Quais perguntas de negócio motivaram sua criação? Quais decisões ele subsidia? Deixe claro o porquê do relatório. (Ex.: Este relatório tem por objetivo acompanhar as vendas mensais por região e produto, comparando com metas e ano anterior, para identificar tendências de crescimento ou queda e direcionar ações comerciais.)
 
 - Escopo e Público-Alvo: (opcional, mas útil)
@@ -339,29 +341,38 @@ Fontes de Dados: Liste de onde vêm os dados utilizados. Seja específico: nomes
 
 - Arquitetura
 
+
 - Localização (Workspace)
+
   
-- Atualização dos Dados (Automação):
+- Atualização dos Dados (Automação)
+
 Informe com que frequência os dados são atualizados e como. Ex.: “Atualização agendada diariamente às 7h via gateway”, ou “Dados de planilha precisam ser atualizados manualmente todo início de mês”. Se houver dependências (ex: “deve rodar fluxo de dados antes, às 6h”), coloque. Assim, quem assumir sabe o ciclo. Eventualmente inclua tempo médio de atualização, ou dicas se falhar (ex: “precisa limpar cache X se erro Y ocorrer”).
 
 - Transformações de Dados (ETL)
+
 Resuma as principais limpezas e transformações feitas no Power Query. Por exemplo: “Unimos dados de vendas de duas fontes diferentes; removemos outliers de preços (preço > 1 milhão tratados como erro e excluídos); calculamos coluna de ‘Status Cliente’ ativo/inativo a partir da última compra; etc.” Não precisa transcrever cada passo M, mas os pontos notáveis e lógicas de negócio implementadas no ETL devem constar. Isso permite compreender como os dados brutos foram moldados para o modelo.
 
 - Modelagem de Dados
+
 Descreva a estrutura do modelo: quais são as tabelas fato e dimensões, e como se relacionam (um diagrama ER simples pode ser muito útil aqui, ou uma lista de relações). Destaque particularidades: “Tabela Calendário customizada incluindo feriados nacionais”, “Dimensão Produto consolidada de múltiplas tabelas”, “Relacionamento muitos-para-muitos utilizado entre X e Y por motivo Z”, etc. Se existirem medidas calculadas que atuam como colunas (ex: uma tabela criada via DAX), mencione. O leitor deve entender o “esqueleto” do modelo sem precisar abri-lo.
 
-- Métricas e Cálculos DAX: 
+- Métricas e Cálculos DAX:
+
 Liste as principais medidas DAX com suas definições de negócio. Por exemplo: Margem Bruta (%) – definição: “(Receita – Custo) / Receita, considerando apenas produtos físicos, excluindo impostos”. Você pode inclusive apresentar a fórmula DAX simplificada. O importante é explicar o conceito e eventuais filtros implícitos. Faça isso para KPIs e medidas complexas especialmente. Assim, usuários e futuros devs sabem exatamente o que cada indicador significa e como é obtido.
 
-- Detalhamento das Páginas/Visuais do Relatório:
+- Detalhamento das Páginas/Visuais do Relatório
+
 Faça um resumo página a página do dashboard, explicando o que cada página mostra e destacando visuais específicos se necessário. Por exemplo: “Página 1 – Visão Geral: apresenta cartões resumindo Vendas, Custos, Lucro do mês atual vs. anterior; gráfico de barras com Vendas por Região; tendência anual de Vendas em linha...”. Para cada visual complexo, explique: “Gráfico X: compara a % de churn por segmento de cliente, calculada conforme métrica Y”. Isso ajuda principalmente quando há visuais menos triviais ou análises cruzadas que não são óbvias a olho nu.
 
 
 - Segurança e Compartilhamento
+
 Documente configurações de RLS (Row-Level Security) se houver – quais roles existem e seu filtro (ex: Role GerenteRegional filtra DimRegião[Gerente] = UserPrincipalName()). Liste quem tem acesso ao relatório (workspaces, apps, ou compartilhamentos diretos). Isso também pode incluir quem pode editar versus só visualizar. Registrar essa “matriz de acesso” é importante para governança.
 
 
 - Melhorias Futuras (Backlog):
+
 Opcionalmente, a documentação pode listar ideias ou demandas de melhoria para versões futuras, para que fique registrado. Ex: “Incluir análise de churn de clientes – previsto para próxima versão”, ou “Otimizar desempenho substituindo agregações por DirectQuery em tabela X”. Isso serve como memória do que ainda poderia ser feito.
 
 --
