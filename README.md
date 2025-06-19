@@ -1,7 +1,8 @@
 # Powertip – Guidelines de Desenvolvimento Power BI Desktop
 
 > **Objetivo**
-> > Este documento reúne boas práticas para desenvolvimento no **Power BI Desktop**, abrangendo etapas de ETL, modelagem, criação de medidas DAX, design de relatórios, controle de versão e documentação. O objetivo é fornecer um guia estruturado para analistas (nível Jr/Pleno) seguirem padrões que melhorem a performance, manutenibilidade e consistência dos projetos de Power BI. A aplicação dessas guidelines ajuda a construir relatórios confiáveis, mais fáceis de evoluir e com visual profissional, alinhados às recomendações oficiais da Microsoft e da comunidade. A seguir, as orientações estão organizadas por etapa do desenvolvimento.
+>
+> Este documento reúne boas práticas para desenvolvimento no **Power BI Desktop**, abrangendo etapas de ETL, modelagem, criação de medidas DAX, design de relatórios, controle de versão e documentação. O objetivo é fornecer um guia estruturado para analistas (nível Jr/Pleno) seguirem padrões que melhorem a performance, manutenibilidade e consistência dos projetos de Power BI. A aplicação dessas guidelines ajuda a construir relatórios confiáveis, mais fáceis de evoluir e com visual profissional, alinhados às recomendações oficiais da Microsoft e da comunidade. A seguir, as orientações estão organizadas por etapa do desenvolvimento.
 
 ---
 
